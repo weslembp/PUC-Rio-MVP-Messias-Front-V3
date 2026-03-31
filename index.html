@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>MESsias</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+   </head>
+   <body>
+      <div class="container mt-5">
+         <div class="header-logo mb-4">
+            <img src="messias.svg" alt="Logo Messias" class="logo-svg">
+         </div>
+         <div class="main-card p-4 shadow rounded container-inicial">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+               <li class="nav-item" role="presentation">
+                  <button class="nav-link vermelho-logo active" id="tab-orders" data-bs-toggle="pill" data-bs-target="#content-orders" type="button" role="tab">Orders</button>
+               </li>
+               <li class="nav-item" role="presentation">
+                  <button class="nav-link vermelho-logo" id="tab-product" data-bs-toggle="pill" data-bs-target="#content-product" type="button" role="tab">Product</button>
+               </li>
+               <li class="nav-item" role="presentation">
+                  <button class="nav-link vermelho-logo" id="tab-chassis" data-bs-toggle="pill" data-bs-target="#content-chassis" type="button" role="tab">Chassis</button>
+               </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+               <div class="tab-pane fade show active" id="content-orders" role="tabpanel">
+                  <div class="row mb-4 align-items-end">
+                     <div class="col-md-4 ">
+                        <select id="select-produto-ordem" class="form-control  select">
+                           <option  selected disabled>Selecione o Produto...</option>
+                        </select>
+                     </div>
+                     <div class="col-md-3">
+                        <input type="number" id="input-qtd-ordem" class="form-control select" placeholder="Quantidade">
+                     </div>
+                     <div class="col-md-2">
+                        <button onclick="handleAddOP(event)" class="btn btn-success w-100 "><b>Criar OP</b></button>
+                     </div>
+                  </div>
+                  <hr>
+                  <div class="table-responsive ">
+                     <table class="table table-borderless ">
+                        <thead>
+                           <tr class="text-muted colum-table ">
+                              <th class="container-inicial ">Ordem</th>
+                              <th class="container-inicial">Produto</th>
+                              <th class="container-inicial">Quantidade</th>
+                              <th class="container-inicial">Status</th>
+                              <th class="container-inicial">Produto Criado em</th>
+                           </tr>
+                        </thead>
+                        <tbody id="tabela-ordens">
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+               <div class="tab-pane fade" id="content-product" role="tabpanel" aria-labelledby="tab-product">
+                  <div class="row g-3 mb-5 align-items-end bg-white p-3 rounded container-inicial">
+                     <div class="col-md-3">
+                        <label class="form-label text-muted small">Montadora</label>
+                        <input type="text" id="prod-marca" class="form-control select" placeholder="Ex: Honda">
+                     </div>
+                     <div class="col-md-3">
+                        <label class="form-label text-muted small">Veículo</label>
+                        <input type="text" id="prod-nome" class="form-control select" placeholder="Ex: Civic">
+                     </div>
+                     <div class="col-md-4">
+                        <label class="form-label text-muted small">Ano Fab.</label>
+                        <input type="number" id="prod-desc" class="form-control select" placeholder="Ex: 2024">
+                     </div>
+                     <div class="col-md-2">
+                        <button onclick="salvarProduto()" class="btn btn-success w-100">
+                        <i class="bi bi-plus-lg"></i>
+                        </button>
+                     </div>
+                  </div>
+                  <div class="mt-4 mb-3">
+                     <h5 class="text-muted"><i class="bi bi-car-front me-2"></i>Carros disponíveis:</h5>
+                     <hr class="text-muted opacity-25">
+                  </div>
+                  <div id="lista-produtos">
+                  </div>
+               </div>
+               
+                  <div class="tab-pane fade" id="content-chassis" role="tabpanel">
+                     <div class="main-card p-4 shadow rounded container-inicial">
+                        <h5>Gerador de Chassis</h5>
+                        <hr>
+                        <div class="table-responsive">
+                           <table class="table table-sm table-hover">
+                              <thead class="table-light">
+                                 <tr>
+                                    <th>Ordem</th>
+                                    <th>Produto</th>
+                                    <th>Chassis</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="lista-chassis-externos">
+                              </tbody>
+                           </table>
+                        </div>
+                        <button onclick="gerarChassisMockaroo()" class="btn btn-outline-primary btn-sm mt-3">
+                        <i class="bi bi-arrow-repeat"></i> Atualizar Chassis das OPs
+                        </button>
+                     </div>
+                  </div>
+              
+            </div>
+         </div>
+      </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="script.js"></script>
+   </body>
+</html>
